@@ -18,7 +18,6 @@ class Stack:
         """Конструктор класса Stack"""
         self.top = None
 
-
     def push(self, data):
         """
         Метод для добавления элемента на вершину стека
@@ -33,4 +32,8 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        pass
+        if self.top is None:
+            raise IndexError('Попытка удаления элемента из пустого стека')
+        copy_top = self.top.data
+        self.top = self.top.next_node
+        return copy_top

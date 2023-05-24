@@ -11,3 +11,11 @@ class TestStack(unittest.TestCase):
         self.assertEqual(s1.top.data, 2)
         self.assertEqual(s1.top.next_node.data, 1)
         self.assertIsNone(s1.top.next_node.next_node)
+
+    def test_pop(self):
+        s1 = Stack()
+        s1.push(1)
+        data = s1.pop()
+        self.assertIsNone(s1.top)
+        self.assertEqual(data, 1)
+        self.assertRaises(IndexError, s1.pop)
