@@ -19,3 +19,16 @@ class TestStack(unittest.TestCase):
         self.assertIsNone(s1.top)
         self.assertEqual(data, 1)
         self.assertRaises(IndexError, s1.pop)
+
+    def test_str(self):
+        s1 = Stack()
+        s1.push(1)
+        s1.push(2)
+        s1.push(3)
+        self.assertEqual(str(s1), '1\n2\n3')
+        s1.pop()
+        self.assertEqual(str(s1), '1\n2')
+        s1.pop()
+        self.assertEqual(str(s1), '1')
+        s1.pop()
+        self.assertEqual(str(s1), '')
