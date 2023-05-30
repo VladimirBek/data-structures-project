@@ -3,7 +3,7 @@ import unittest
 from src.queue import Queue
 
 
-class TestStack(unittest.TestCase):
+class TestQueue(unittest.TestCase):
 
     def test_enqueue(self):
         q1 = Queue()
