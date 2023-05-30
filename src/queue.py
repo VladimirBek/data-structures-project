@@ -48,4 +48,8 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        pass
+        if self.head is None:
+            return None
+        data = self.head.data
+        self.head = self.head.next_node
+        return data
