@@ -25,3 +25,19 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(str(q1), '1\n2\n3')
         q1.enqueue(4)
         self.assertEqual(str(q1), '1\n2\n3\n4')
+
+    def test_dequeue(self):
+        q1 = Queue()
+        q1.enqueue(1)
+        q1.enqueue(2)
+        q1.enqueue(3)
+        self.assertEqual(q1.head.data, 1)
+        self.assertEqual(q1.tail.data, 3)
+        self.assertEqual(q1.dequeue(), 1)
+        self.assertEqual(q1.head.data, 2)
+        self.assertEqual(q1.dequeue(), 2)
+        self.assertEqual(q1.head.data, 3)
+        self.assertEqual(q1.tail.data, 3)
+        self.assertEqual(q1.dequeue(), 3)
+        self.assertEqual(q1.dequeue(), None)
+
