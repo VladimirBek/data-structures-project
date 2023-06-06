@@ -17,3 +17,22 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(str(ll), "{'id': 3} -> {'id': 2} -> {'id': 1} -> None")
         ll.insert_at_end({'id': 0})
         self.assertEqual(str(ll), "{'id': 3} -> {'id': 2} -> {'id': 1} -> {'id': 0} -> None")
+
+    def test_linked_list_exceptions(self):
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1})
+        ll.insert_at_end({'id': 0})
+        self.assertEqual(str(ll), "{'id': 1} -> {'id': 0} -> None")
+        self.assertEqual(ll.insert_beginning([122132134]), None)
+
+    def test_linked_list_to_list(self):
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1})
+        ll.insert_at_end({'id': 0})
+        self.assertEqual(ll.to_list(), [{'id': 1}, {'id': 0}])
+
+    def test_linked_list_get_data_by_id(self):
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1})
+        ll.insert_at_end({'id': 0})
+        self.assertEqual(ll.get_data_by_id(1), {'id': 1})
